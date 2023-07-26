@@ -34,12 +34,12 @@ workflow MTX_CONVERSION {
         //
         // Convert matrix do seurat
         //
-        MTX_TO_SEURAT (
-            mtx_matrices
-        )
+        //MTX_TO_SEURAT (
+        //    mtx_matrices
+        //)
 
         //TODO CONCAT h5ad and MTX to h5ad should also have versions.yaml output
-        ch_version = ch_versions.mix(MTX_TO_H5AD.out.versions, MTX_TO_SEURAT.out.versions)
+        ch_version = ch_versions.mix(MTX_TO_H5AD.out.versions)//, MTX_TO_SEURAT.out.versions
 
     emit:
     ch_versions
